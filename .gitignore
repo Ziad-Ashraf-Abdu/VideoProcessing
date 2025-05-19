@@ -1,0 +1,16 @@
+# Ignore all MP4 video files
+*.mp4
+
+# Ignore CSV files (including ones in root and subdirectories)
+*.csv
+
+# Ignore specific folders
+/standard/
+/player_analysis/
+/output/
+/frames/
+/idea/  # Remove the dot so it matches the folder correctly if that's the intent
+
+# Ignore specific CSV files inside the ML directory
+/ML/advanced.csv
+/ML/advanced1.csv
