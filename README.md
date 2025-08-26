@@ -1,68 +1,73 @@
 # 🎾 VideoProcessing
 
-A Python application for analyzing tennis player performance from video footage.  
-Automatically extracts frames, computes key metrics, and compares results against predefined standards.
+A Python-based **video processing server** that connects with our mobile app to extract tennis performance parameters.
+The server automatically processes uploaded videos, extracts key motion and performance metrics, and forwards them to a **helper server**. The helper server then communicates with our **Hugging Face model API** to analyze and return insights back to the app.
+
+---
 
 ## 📁 Project Structure
 
-```text
+```
 VideoProcessing/
-├── frames/                    # Extracted video frames
-├── output/                    # Generated reports and visualizations
-├── player_analysis/           # Per-player analysis data
-├── standard/                  # Reference standards and thresholds
-├── ML/
-│   ├── advanced.csv           # ML metrics
-│   └── advanced1.csv
 ├── .gitignore                 # Ignored files and folders
-├── VideoProcessing.py         # Main processing pipeline
-├── PlayerEvaluation.py        # Player evaluation script
-├── StandardValues.py          # Reference values and thresholds
-├── server.py                  # (Optional) Web interface
+├── VideoProcessing.py         # Core video processing pipeline
+├── server.py                  # Helper Server (forwards metrics to Hugging Face)
 └── README.md                  # Project documentation
-````
+```
+
+---
 
 ## 🧰 Features
 
-* **Frame Extraction**: Breaks down video into individual frames for analysis.
-* **Metric Computation**: Calculates movement, speed, and other player statistics.
-* **Standard Comparison**: Evaluates performance against a set of customizable benchmarks.
-* **Report Generation**: Outputs detailed CSV reports and visual charts.
+* **Video Processing Server**: Extracts frames, motion data, and performance parameters from tennis videos.
+* **Helper Server**: Sends extracted parameters to a Hugging Face endpoint for ML-based analysis.
+* **App Integration**: Designed to communicate seamlessly with our mobile application.
+
+---
 
 ## 🚀 Installation
 
-1. **Clone the repo**
+Clone the repository:
 
-   ```bash
-   git clone https://github.com/Ziad-Ashraf-Abdu/VideoProcessing.git
-   cd VideoProcessing
-   ```
-2. **Create a virtual environment**
+```bash
+git clone https://github.com/Ziad-Ashraf-Abdu/VideoProcessing.git
+cd VideoProcessing
+```
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate      # On Windows: venv\Scripts\activate
-   ```
-3. **Install dependencies**
+Create a virtual environment:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
 
 ## ▶️ Usage
 
-* **Run full pipeline**
+### 1. Start the Video Processing Server
 
-  ```bash
-  python VideoProcessing.py --input path/to/video.mp4 --output output/
-  ```
-* **Evaluate a single player**
+```bash
+python VideoProcessing.py
+```
 
-  ```bash
-  python PlayerEvaluation.py --frames frames/ --player-id 1
-  ```
+This server listens for video input from the app, processes it, and extracts parameters.
 
-*For detailed options, see the docstrings in each script.*
+### 2. Start the Helper Server
+
+```bash
+python server.py
+```
+
+This forwards the extracted parameters to the Hugging Face endpoint and returns analyzed results.
+
+---
 
 ## 🤝 Contributing
 
@@ -74,9 +79,13 @@ VideoProcessing/
 
 Please follow the existing code style and include tests for new functionality.
 
+---
+
 ## 📄 License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
 
 ## 👤 Author
 
@@ -85,6 +94,6 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 * GitHub: [@Ziad-Ashraf-Abdu](https://github.com/Ziad-Ashraf-Abdu)
 * Email: [ziad.mohamed04@eng-st.cu.edu.eg](mailto:ziad.mohamed04@eng-st.cu.edu.eg)
 
-```
-::contentReference[oaicite:6]{index=6}
-```
+---
+
+Would you like me to also add a **diagram** (ASCII or simple image link) showing how the **App → Video Processing Server → Helper Server → Hugging Face → Back to App** flow works? That would make it clearer for new contributors.
