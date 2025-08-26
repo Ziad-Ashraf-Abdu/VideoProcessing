@@ -9,8 +9,6 @@
 /player_analysis/
 /output/
 /frames/
-/idea/  # Remove the dot so it matches the folder correctly if that's the intent
+/.idea/  
 
 # Ignore specific CSV files inside the ML directory
-/ML/advanced.csv
-/ML/advanced1.csv
